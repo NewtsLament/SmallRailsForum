@@ -1,0 +1,13 @@
+.index_menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--standard_gap);
+    padding: var(--standard_padding);
+}
+.index_menu_item {
+    flex-grow: 1;
+    border-color: gray;
+    border-style: solid;
+    padding: var(--standard_padding);
+}
