@@ -1,8 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @forum %>
+<% if @threads %>
 
+<div id="forum_threads">
+  <div class="forum_item">
+    <% @threads.each do |thread| %>
+      <h4>
+        <%= link_to thread.title, thread %>
+      </h4>
+      <p>
+        <%= thread.description %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<% end %>
 <div>
+  <%= link_to "New thread", new_forum_thread_path(forum_id: @forum.id) %>
   <%= link_to "Edit this forum", edit_forum_path(@forum) %> |
   <%= link_to "Back to forums", forums_path %>
 

@@ -1,0 +1,14 @@
+#forums {
+    display: grid;
+    grid-template-columns: 10vw;
+}
+#forum_threads {
+    display: grid;
+    grid-template-columns: 10vw;
+}
+.forum_item {
+    border-color: gray;
+    border-style: solid;
+    border-radius: var(--standard_border_radius);
+    padding: var(--standard_padding);
+}

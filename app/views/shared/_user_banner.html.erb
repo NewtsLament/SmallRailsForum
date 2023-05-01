@@ -1,0 +1,13 @@
+<div class="user_banner_container">
+  <% if notice %>
+    <div class="user_banner_item user_banner_item_notice">
+      <%= notice %>
+    </div>
+  <% end %>
+  <div class="user_banner_item">
+    Signed as <%= Current.user.email %>
+  </div>
+  <div class="user_banner_item">
+    <%= link_to "Forums", forums_url %>
+  </div>
+</div>

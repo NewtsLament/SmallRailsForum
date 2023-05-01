@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :forum_threads
   resources :forums
   get  "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"

@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="index_body">
+      <%= render "shared/user_banner" %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,4 +1,6 @@
 :root {
     --standard_padding: 10px;
     --standard_gap: 20px;
+    --small_gap: 5px;
+    --standard_border_radius: 10px;
 }

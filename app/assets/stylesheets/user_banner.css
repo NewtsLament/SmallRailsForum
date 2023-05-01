@@ -1,0 +1,31 @@
+.user_banner_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    border-color: gray;
+    border-style: solid;
+    border-radius: var(--standard_border_radius);
+    padding: var(--standard_padding);
+    gap: var(--small_gap);
+}
+.user_banner_item {
+    display: flex;
+    justify-content: center;
+    border-radius: inherit;
+    border-style: inherit;
+    border-color: gray;
+    background: lightsteelblue;
+    padding: var(--standard_padding);
+    width: 300px;
+}
+
+.user_banner_item_notice {
+    color: green;
+    background: bisque;
+}
+.index_body {
+    display: grid;
+    grid-template-columns: auto;
+    gap: var(--small_gap);
+}

@@ -1,0 +1,11 @@
+.posts {
+    display: grid;
+    grid-template-columns: 10vw;
+}
+.post {
+    padding: var(--standard_padding);
+    border-radius: var(--standard_border_radius);
+    border-style: solid;
+    border-color: gray;
+    background: lightgoldenrodyellow;
+}

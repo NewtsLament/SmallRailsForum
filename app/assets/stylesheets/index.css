@@ -3,11 +3,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--standard_gap);
-    padding: var(--standard_padding);
+
 }
 .index_menu_item {
     flex-grow: 1;
     border-color: gray;
     border-style: solid;
+    border-radius: var(--standard_border_radius);
     padding: var(--standard_padding);
 }
