@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Forum threads</h1>
+
+<div id="forum_threads">
+  <% @forum_threads.each do |forum_thread| %>
+    <%= render forum_thread %>
+    <p>
+      <%= link_to "Show this forum thread", forum_thread %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New forum thread", new_forum_thread_path %>

@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @forum_thread %>
+
+<div>
+  <%= link_to "New post", new_post_path %>
+  <%= link_to "Edit this forum thread", edit_forum_thread_path(@forum_thread) %> |
+  <%= link_to "Back to forum threads", forum_threads_path %>
+
+  <%= button_to "Destroy this forum thread", @forum_thread, method: :delete %>
+</div>
+
+<%= render "posts/form", post: @post %>

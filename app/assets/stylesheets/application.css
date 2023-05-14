@@ -11,6 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require variables
  *= require_self
  */
+
+.application_body {
+    display: grid;
+    grid-template-columns: auto;
+    gap: var(--small_gap);
+}

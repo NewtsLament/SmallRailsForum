@@ -1,10 +1,11 @@
 #forums {
     display: grid;
-    grid-template-columns: 10vw;
+    grid-template-columns: auto;
+    max-width: var(--standard-max-width);
 }
 #forum_threads {
     display: grid;
-    grid-template-columns: 10vw;
+    grid-template-columns: auto;
 }
 .forum_item {
     border-color: gray;

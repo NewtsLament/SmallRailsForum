@@ -1,0 +1,16 @@
+<div class="forum_thread" id="<%= dom_id forum_thread %>">
+  <h4>
+    <%= forum_thread.title %>
+  </h4>
+
+  <div class="posts">
+    <% if @posts %>
+      <% @posts.each do |post| %>
+        <div class="post">
+          <%= render post %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

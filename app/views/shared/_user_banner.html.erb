@@ -4,9 +4,11 @@
       <%= notice %>
     </div>
   <% end %>
-  <div class="user_banner_item">
-    Signed as <%= Current.user.email %>
-  </div>
+  <% if Current.user %>
+    <div class="user_banner_item">
+      Signed as&nbsp;<%= link_to Current.user.email, root_path %>
+    </div>
+  <% end %>
   <div class="user_banner_item">
     <%= link_to "Forums", forums_url %>
   </div>
