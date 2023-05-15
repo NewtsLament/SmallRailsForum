@@ -1,16 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-
-  # GET /posts or /posts.json
-  def index
-    @posts = Post.all
-  end
-
+  authorize_resource
   # GET /posts/1 or /posts/1.json
   def show
-    @nickname = Current.user.nickname
+    user = User.find(@post.user_id)
+    @nickname = user.nickname
     unless @nickname
-      @nickname = Current.user.email
+      @nickname = user.email
     end
   end
 
@@ -27,7 +23,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-    @post.user_id = Current.user[:id]
+    @post.user = Current.user
     redirect_thread = ForumThread.find_by_id(@post.forum_thread_id)
 
     respond_to do |format|
@@ -78,4 +74,6 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title,:body,:forum_thread_id)
     end
+
+
 end

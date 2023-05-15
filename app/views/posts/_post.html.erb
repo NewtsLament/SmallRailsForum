@@ -1,8 +1,16 @@
 <div id="<%= dom_id post %>">
   <h3>
-    <%= @nickname %>
+    <% if post.user.nil? %>
+      Deleted
+    <% elsif post.user.nickname.nil? %>
+      <%= post.user.email %>
+      <% else %>
+    <%= post.user.nickname %>
+    <% end %>
+
   </h3>
   <p>
     <%= post.body %>
+    <%= link_to "Show this post", post %>
   </p>
 </div>

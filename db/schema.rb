@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_143325) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_084842) do
   create_table "email_verification_tokens", force: :cascade do |t|
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_email_verification_tokens_on_user_id"
@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_143325) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
     t.integer "forum_thread_id", null: false
+    t.integer "user_id"
     t.index ["forum_thread_id"], name: "index_posts_on_forum_thread_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -82,7 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_143325) do
   add_foreign_key "forum_threads", "forums"
   add_foreign_key "password_reset_tokens", "users"
   add_foreign_key "posts", "forum_threads"
-  add_foreign_key "posts", "users"
   add_foreign_key "recovery_codes", "users"
   add_foreign_key "sessions", "users"
 end

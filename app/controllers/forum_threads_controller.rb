@@ -10,10 +10,6 @@ class ForumThreadsController < ApplicationController
   def show
     @posts = Post.where(:forum_thread_id => @forum_thread.id)
     @post = Post.new
-    @nickname = Current.user.nickname
-    unless @nickname
-      @nickname = Current.user.email
-    end
   end
 
   # GET /forum_threads/new

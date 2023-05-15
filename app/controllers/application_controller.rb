@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
         redirect_to new_sessions_sudo_path(proceed_to_url: request.original_url)
       end
     end
+
+  def current_user
+    Current.user
+  end
 end
