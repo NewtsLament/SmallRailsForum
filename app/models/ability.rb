@@ -28,11 +28,20 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-    can :read, Post
+    can :read, [Post,Forum,ForumThread]
 
-    return unless user.present?
+    return unless user.is_normal?
 
     can :manage, Post, user_id: user[:id]
+    can [:create,:update], ForumThread, user_id: user[:id]
 
+    return unless user.is_moderator?
+
+    can :manage, Post
+    can :manage, Forum
+
+    return unless user.is_admin?
+
+    can :manage,:all
   end
 end

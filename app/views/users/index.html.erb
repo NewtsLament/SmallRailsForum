@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="posts">
+  <% @users.each do |user| %>
+    <%= render user %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>
+<% if @users.first.id > 1 %>
+  <%= link_to "Previous", users_path(from_id: @users.first.id, count: -2) %>
+<% else %>
+  Previous
+<% end %>
+<% if @users.last.id < @max_user_id %>
+  <%= link_to "Next", users_path(from_id: @users.last.id+1, count: 1) %>
+<% else %>
+  Next
+<% end %>

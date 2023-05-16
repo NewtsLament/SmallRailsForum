@@ -6,7 +6,7 @@
   <% end %>
   <% if Current.user %>
     <div class="user_banner_item">
-      Signed as&nbsp;<%= link_to Current.user.email, root_path %>
+      Signed as&nbsp;<%= link_to Current.user.email, root_path %>&nbsp;(<%= Current.user.role.humanize %> user)
     </div>
   <% end %>
   <div class="user_banner_item">

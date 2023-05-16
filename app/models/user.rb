@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  ROLES = %i[admin moderator normal banned]
 
   has_many :email_verification_tokens, dependent: :destroy
   has_many :password_reset_tokens, dependent: :destroy
@@ -25,5 +26,18 @@ class User < ApplicationRecord
 
   after_update if: :password_digest_previously_changed? do
     sessions.where.not(id: Current.session).delete_all
+  end
+  def is_normal?
+    is_admin? || is_moderator? || role == "normal" || role.nil?
+  end
+  def is_admin?
+    role == "admin"
+  end
+
+  def is_moderator?
+    role == "moderator" || is_admin?
+  end
+  def is_banned?
+    role == "banned"
   end
 end

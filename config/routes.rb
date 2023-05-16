@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :users, only: [:index, :show, :edit, :update]
   resources :forum_threads
   resources :forums
   get  "sign_in", to: "sessions#new"
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   namespace :identity do
     resource :email,              only: [:edit, :update]
     resource :nickname,           only: [:edit, :update]
+    resource :role,               only: [:edit, :update]
     resource :email_verification, only: [:show, :create]
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end

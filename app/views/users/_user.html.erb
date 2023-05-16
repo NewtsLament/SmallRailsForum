@@ -1,0 +1,9 @@
+<div id="<%= dom_id user %>">
+  <h3>User details</h3>
+  <ul>
+    <li>User id: <%= user.id %></li>
+    <li>Email: <%= user.email %></li>
+    <li>Nickname: <%= user.nickname %></li>
+    <li>Role: <% if user.role.nil? %> Normal <% else %> <%= user.role.humanize %> <% end %> user</li>
+  </ul>
+</div>
