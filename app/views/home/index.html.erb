@@ -1,5 +1,6 @@
 <div class="index_menu">
   <div class="index_menu_item">
+    <% if Current.user.present? %>
     <h2>Login and verification</h2>
 
     <div>
@@ -31,14 +32,17 @@
     <br>
 
     <%= button_to "Log out", Current.session, method: :delete %>
+    <% else %>
+      <div>
+        <%= link_to "Sign in or create user", sign_in_path %>
+      </div>
+    <% end %>
   </div>
   <div class="index_menu_item">
     <ul>
     <li><%= link_to "Forums", forums_url %></li>
-    <% if Current.user.is_admin? %>
+    <% if Current.user.present? && Current.user.is_admin? %>
       <li><%= link_to "Users", users_url %></li>
-    <% end %>
-    <% if Current.user.is_moderator? %>
       <li><%= link_to "Change role", edit_identity_role_path %></li>
     <% end %>
     </ul>

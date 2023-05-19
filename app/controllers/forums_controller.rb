@@ -1,5 +1,6 @@
 class ForumsController < ApplicationController
   before_action :set_forum, only: %i[ show edit update destroy ]
+  authorize_resource
 
   # GET /forums or /forums.json
   def index
@@ -8,7 +9,7 @@ class ForumsController < ApplicationController
 
   # GET /forums/1 or /forums/1.json
   def show
-    @threads = ForumThread.where(:forum_id => @forum.id)
+    @threads = @forum.forum_threads
   end
 
   # GET /forums/new

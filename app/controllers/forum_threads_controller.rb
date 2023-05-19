@@ -1,5 +1,6 @@
 class ForumThreadsController < ApplicationController
   before_action :set_forum_thread, only: %i[ show edit update destroy ]
+  authorize_resource
 
   # GET /forum_threads or /forum_threads.json
   def index
@@ -8,7 +9,7 @@ class ForumThreadsController < ApplicationController
 
   # GET /forum_threads/1 or /forum_threads/1.json
   def show
-    @posts = Post.where(:forum_thread_id => @forum_thread.id)
+    @posts = @forum_thread.posts
     @post = Post.new
   end
 
@@ -73,6 +74,6 @@ class ForumThreadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def forum_thread_params
-      params.require(:forum_thread).permit(:title,:description,:forum_id)
+      params.require(:forum_thread).permit(:title,:forum_id)
     end
 end

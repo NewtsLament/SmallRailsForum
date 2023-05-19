@@ -14,11 +14,7 @@
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-  <% form.hidden_field :forum_id, value: @forum_thread.forum_id %>
+  <%= form.hidden_field :forum_id, :value => forum_thread.forum_id %>
   <div>
     <%= form.submit %>
   </div>
